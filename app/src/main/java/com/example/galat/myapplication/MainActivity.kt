@@ -10,11 +10,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initializeNumberButton()
-        initializeOpButton()
+        initializeNumberButtons()
+        initializeOpButtons()
+        initializeAdvButtons()
     }
 
-    fun initializeNumberButton(){
+    fun initializeNumberButtons(){
         fun addNumber(number: Long) {
             val shortOut = output1.text.toString().toLong()
             if (shortOut == 0L) {
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun initializeOpButton(){
+    fun initializeOpButtons(){
         fun addSymbol(symbol: String) {
             when(output_sign.text){
                 "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toInt()).toString()
@@ -85,4 +86,19 @@ class MainActivity : AppCompatActivity() {
             addSymbol("=")
         }
     }
+
+    fun initializeAdvButtons(){
+        b_canc.setOnClickListener {
+            if(output1.text != "0")
+                output1.text = output1.text.toString().subSequence(0, output1.text.toString().length - 1)
+            else
+                canc_all.performClick()
+        }
+        canc_all.setOnClickListener{
+            output1.text = "0"
+            output2.text = ""
+            output_sign.text = ""
+        }
+    }
 }
+
