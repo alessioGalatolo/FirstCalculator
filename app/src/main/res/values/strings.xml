@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">My Calculator</string>
     <string name="canc_string"><![CDATA[<--]]></string>
 </resources>

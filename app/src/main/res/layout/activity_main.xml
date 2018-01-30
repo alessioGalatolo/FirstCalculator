@@ -7,14 +7,14 @@
     tools:context="com.example.galat.myapplication.MainActivity">
 
     <!--<ImageView-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="0dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="@+id/output2"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:srcCompat="@color/colorPrimary" />-->
+    <!--android:id="@+id/imageView"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="0dp"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/output2"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent"-->
+    <!--app:srcCompat="@color/colorPrimary" />-->
 
     <ImageView
         android:id="@+id/imageView2"
@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/output2"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
         app:srcCompat="@color/colorPrimary" />
 
     <TextView
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toStartOf="@+id/b_power"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/output2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/b_power"
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toStartOf="@+id/b_sqrt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/canc_all"
-        app:layout_constraintTop_toBottomOf="@+id/output2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/b_sqrt"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toStartOf="@+id/b_canc"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_power"
-        app:layout_constraintTop_toBottomOf="@+id/output2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/b_canc"
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_sqrt"
-        app:layout_constraintTop_toBottomOf="@+id/output2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/b_1"
@@ -257,7 +257,7 @@
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/b_plus"
+        app:layout_constraintBottom_toTopOf="@+id/b_equal"
         app:layout_constraintEnd_toStartOf="@+id/b_minus"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_8"
@@ -289,7 +289,7 @@
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/b_equal"
+        app:layout_constraintBottom_toTopOf="@+id/b_plus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_9"
@@ -323,27 +323,10 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b_plus"
+        app:layout_constraintEnd_toStartOf="@+id/b_equal"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_sign"
         app:layout_constraintTop_toBottomOf="@+id/b_8"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/b_plus"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="+"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b_equal"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_0"
-        app:layout_constraintTop_toBottomOf="@+id/b_9"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -357,9 +340,26 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/b_plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_0"
+        app:layout_constraintTop_toBottomOf="@+id/b_9"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/b_plus"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="+"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_plus"
+        app:layout_constraintStart_toEndOf="@+id/b_equal"
         app:layout_constraintTop_toBottomOf="@+id/b_minus" />
 
     <TextView
@@ -370,6 +370,7 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="45sp"
         android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/output1" />
 
@@ -385,5 +386,12 @@
         app:layout_constraintEnd_toStartOf="@+id/output2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/output1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
 
 </android.support.constraint.ConstraintLayout>
