@@ -7,9 +7,9 @@
     tools:context="com.example.galat.myapplication.MainActivity">
 
     <TextView
-        android:id="@+id/output"
+        android:id="@+id/output1"
         android:layout_width="0dp"
-        android:layout_height="138dp"
+        android:layout_height="68dp"
         android:text="0"
         android:textAlignment="textEnd"
         android:textSize="55sp"
@@ -21,53 +21,53 @@
         android:id="@+id/canc_all"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="C"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/b_1"
         app:layout_constraintEnd_toStartOf="@+id/b_power"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/output" />
+        app:layout_constraintTop_toBottomOf="@+id/output2" />
 
     <Button
         android:id="@+id/b_power"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="^"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/b_2"
         app:layout_constraintEnd_toStartOf="@+id/b_sqrt"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/canc_all"
-        app:layout_constraintTop_toBottomOf="@+id/output" />
+        app:layout_constraintTop_toBottomOf="@+id/output2" />
 
     <Button
         android:id="@+id/b_sqrt"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text=" √"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/b_3"
         app:layout_constraintEnd_toStartOf="@+id/b_canc"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_power"
-        app:layout_constraintTop_toBottomOf="@+id/output" />
+        app:layout_constraintTop_toBottomOf="@+id/output2" />
 
     <Button
         android:id="@+id/b_canc"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/canc_string"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/b_div"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_sqrt"
-        app:layout_constraintTop_toBottomOf="@+id/output" />
+        app:layout_constraintTop_toBottomOf="@+id/output2" />
 
     <Button
         android:id="@+id/b_1"
@@ -285,5 +285,28 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_plus"
         app:layout_constraintTop_toBottomOf="@+id/b_minus" />
+
+    <TextView
+        android:id="@+id/output2"
+        android:layout_width="306dp"
+        android:layout_height="68dp"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/output1" />
+
+    <TextView
+        android:id="@+id/output_sign"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="@+id/output2"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/output2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/output1" />
 
 </android.support.constraint.ConstraintLayout>

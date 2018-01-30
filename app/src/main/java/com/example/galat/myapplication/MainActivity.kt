@@ -3,8 +3,7 @@ package com.example.galat.myapplication
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.math.log
-import kotlin.math.pow
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +16,11 @@ class MainActivity : AppCompatActivity() {
 
     fun initializeNumberButton(){
         fun addNumber(number: Long) {
-            val shortOut = output.text.toString().toLong()
+            val shortOut = output1.text.toString().toLong()
             if (shortOut == 0L) {
-                output.text = number.toString()
+                output1.text = number.toString()
             } else {
-                output.text = (shortOut * 10L + number).toString()
+                output1.text = (shortOut * 10L + number).toString()
             }
         }
 
@@ -58,6 +57,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initializeOpButton(){
-
+        fun addSymbol(symbol: String) {
+            when(output_sign.text){
+                "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toInt()).toString()
+                "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).toString()
+                "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).toString()
+                "/" -> output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).toString()
+                "=" -> null
+                else -> output2.text = output1.text
+            }
+            output1.text = "0"
+            output_sign.text = symbol
+        }
+        b_plus.setOnClickListener {
+            addSymbol("+")
+        }
+        b_minus.setOnClickListener {
+            addSymbol("-")
+        }
+        b_mult.setOnClickListener {
+            addSymbol("*")
+        }
+        b_div.setOnClickListener {
+            addSymbol("/")
+        }
+        b_equal.setOnClickListener {
+            addSymbol("=")
+        }
     }
 }
