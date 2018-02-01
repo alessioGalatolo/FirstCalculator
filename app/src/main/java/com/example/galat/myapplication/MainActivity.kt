@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         fun addNumber(number: Long) {
             val shortOut = output1.text.toString().toLong()
             if (shortOut == 0L) {
-                output1.text = number.toString()
+                output1.setText(number.toString())
             } else {
-                output1.text = (shortOut * 10L + number).toString()
+                output1.setText((shortOut * 10L + number).toString())
             }
         }
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 "=" -> null
                 else -> output2.text = output1.text
             }
-            output1.text = "0"
+            output1.setText("0")
             output_sign.text = symbol
         }
         b_plus.setOnClickListener {
@@ -89,13 +89,13 @@ class MainActivity : AppCompatActivity() {
 
     fun initializeAdvButtons(){
         b_canc.setOnClickListener {
-            if(output1.text != "0")
-                output1.text = output1.text.toString().subSequence(0, output1.text.toString().length - 1)
+            if(output1.text.toString() != "0")
+                output1.setText(output1.text.toString().subSequence(0, output1.text.toString().length - 1))
             else
                 canc_all.performClick()
         }
         canc_all.setOnClickListener{
-            output1.text = "0"
+            output1.setText("0")
             output2.text = ""
             output_sign.text = ""
         }
