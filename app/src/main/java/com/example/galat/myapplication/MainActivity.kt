@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         b_minus.setOnClickListener {
             addSymbol("-")
         }
-        b_mult.setOnClickListener {
+        b_molt.setOnClickListener {
             addSymbol("*")
         }
         b_div.setOnClickListener {
@@ -88,13 +88,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initializeAdvButtons(){
-        b_canc.setOnClickListener {
+        b_power.setOnClickListener {
             if(output1.text.toString() != "0")
                 output1.setText(output1.text.toString().subSequence(0, output1.text.toString().length - 1))
             else
-                canc_all.performClick()
+                b_sin.performClick()
         }
-        canc_all.setOnClickListener{
+        b_sin.setOnClickListener{
             output1.setText("0")
             output2.text = ""
             output_sign.text = ""
