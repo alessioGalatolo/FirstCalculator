@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -12,242 +13,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="@+id/b_snd"
         app:srcCompat="@color/colorPrimaryDark" />
 
     <Button
-        android:id="@+id/b_sqrt"
+        android:id="@+id/b_log"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text=" √"
+        android:text="log"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/b_sin"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_power"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/b_4"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="4"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_power"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_power"
-        app:layout_constraintTop_toTopOf="@+id/b_power" />
-
-    <Button
-        android:id="@+id/b_sin"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Sin"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button16"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button4"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="2nd"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/b_sqrt"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/canc_all"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/b_1"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="1"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/canc_all"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/canc_all"
-        app:layout_constraintTop_toTopOf="@+id/canc_all" />
-
-    <Button
-        android:id="@+id/button6"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Cos"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_sin"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_sin"
-        app:layout_constraintTop_toTopOf="@+id/b_sin" />
-
-    <Button
-        android:id="@+id/b_7"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="7"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button6"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button6" />
-
-    <Button
-        android:id="@+id/b_5"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="5"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_4"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_4"
-        app:layout_constraintTop_toTopOf="@+id/b_4" />
-
-    <Button
-        android:id="@+id/b_2"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="2"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_1"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_1"
-        app:layout_constraintTop_toTopOf="@+id/b_1" />
-
-    <Button
-        android:id="@+id/b_8"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="8"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_7"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_9"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_7"
-        app:layout_constraintTop_toTopOf="@+id/b_7" />
-
-    <Button
-        android:id="@+id/b_6"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="6"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_5"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_molt"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_5"
-        app:layout_constraintTop_toTopOf="@+id/b_5" />
-
-    <Button
-        android:id="@+id/b_3"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="3"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_2"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_div"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_2"
-        app:layout_constraintTop_toTopOf="@+id/b_2" />
-
-    <Button
-        android:id="@+id/b_div"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="/"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_3"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_3"
-        app:layout_constraintTop_toTopOf="@+id/b_3" />
-
-    <Button
-        android:id="@+id/b_molt"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="*"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_6"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_6"
-        app:layout_constraintTop_toTopOf="@+id/b_6" />
-
-    <Button
-        android:id="@+id/b_9"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="9"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_8"
-        app:layout_constraintDimensionRatio="16:7"
-        app:layout_constraintEnd_toStartOf="@+id/b_minus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_8"
-        app:layout_constraintTop_toTopOf="@+id/b_8" />
-
-    <Button
-        android:id="@+id/button16"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="tan"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="16:7"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toStartOf="@+id/b_ln"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -258,15 +36,29 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="ln"
-        android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button16"
-        app:layout_constraintDimensionRatio="16:7"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_log"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_percent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_log"
+        app:layout_constraintTop_toTopOf="@+id/b_log" />
+
+    <Button
+        android:id="@+id/b_percent"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="%"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_ln"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toStartOf="@+id/b_dot"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button16"
-        app:layout_constraintTop_toTopOf="@+id/button16" />
+        app:layout_constraintStart_toEndOf="@+id/b_ln"
+        app:layout_constraintTop_toTopOf="@+id/b_ln" />
 
     <Button
         android:id="@+id/b_dot"
@@ -275,13 +67,13 @@
         android:layout_height="0dp"
         android:text="."
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_ln"
-        app:layout_constraintDimensionRatio="16:7"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_percent"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toStartOf="@+id/b_0"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/b_ln"
-        app:layout_constraintTop_toTopOf="@+id/b_ln" />
+        app:layout_constraintStart_toEndOf="@+id/b_percent"
+        app:layout_constraintTop_toTopOf="@+id/b_percent" />
 
     <Button
         android:id="@+id/b_0"
@@ -290,9 +82,9 @@
         android:layout_height="0dp"
         android:text="0"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/b_dot"
-        app:layout_constraintDimensionRatio="16:7"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toStartOf="@+id/b_equal"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_dot"
@@ -305,9 +97,9 @@
         android:layout_height="0dp"
         android:text="="
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/b_0"
-        app:layout_constraintDimensionRatio="16:7"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toStartOf="@+id/b_plus"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_0"
@@ -320,13 +112,102 @@
         android:layout_height="0dp"
         android:text="+"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/b_equal"
-        app:layout_constraintDimensionRatio="16:7"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_equal"
         app:layout_constraintTop_toTopOf="@+id/b_equal" />
+
+    <Button
+        android:id="@+id/b_sin"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="sin"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/b_log"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_cos"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/b_cos"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="cos"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_sin"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_tan"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_sin"
+        app:layout_constraintTop_toTopOf="@+id/b_sin" />
+
+    <Button
+        android:id="@+id/b_tan"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="tan"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_cos"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_cos"
+        app:layout_constraintTop_toTopOf="@+id/b_cos" />
+
+    <Button
+        android:id="@+id/b_7"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="7"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_tan"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_tan"
+        app:layout_constraintTop_toTopOf="@+id/b_tan" />
+
+    <Button
+        android:id="@+id/b_8"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="8"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_7"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_7"
+        app:layout_constraintTop_toTopOf="@+id/b_7" />
+
+    <Button
+        android:id="@+id/b_9"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="9"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_8"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_minus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_8"
+        app:layout_constraintTop_toTopOf="@+id/b_8" />
 
     <Button
         android:id="@+id/b_minus"
@@ -335,9 +216,9 @@
         android:layout_height="0dp"
         android:text="-"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/b_9"
-        app:layout_constraintDimensionRatio="16:7"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_9"
@@ -350,13 +231,131 @@
         android:layout_height="0dp"
         android:text="^"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/b_sqrt"
-        app:layout_constraintDimensionRatio="16:7"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/b_sin"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_sqpow"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/b_sqpow"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="^2"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_power"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_sqrt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_power"
+        app:layout_constraintTop_toTopOf="@+id/b_power" />
+
+    <Button
+        android:id="@+id/b_sqrt"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="√"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_sqpow"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toStartOf="@+id/b_4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_sqpow"
+        app:layout_constraintTop_toTopOf="@+id/b_sqpow" />
+
+    <Button
+        android:id="@+id/b_4"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="4"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_sqrt"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/b_sqrt"
         app:layout_constraintTop_toTopOf="@+id/b_sqrt" />
+
+    <Button
+        android:id="@+id/b_5"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="5"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_4"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_4"
+        app:layout_constraintTop_toTopOf="@+id/b_4" />
+
+    <Button
+        android:id="@+id/b_6"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="6"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_5"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_molt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_5"
+        app:layout_constraintTop_toTopOf="@+id/b_5" />
+
+    <Button
+        android:id="@+id/b_molt"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="*"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_6"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_6"
+        app:layout_constraintTop_toTopOf="@+id/b_6" />
+
+    <Button
+        android:id="@+id/b_snd"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="2nd"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toTopOf="@+id/b_power"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_parentesis"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/b_parentesis"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="()"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_snd"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/canc_all"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_snd"
+        app:layout_constraintTop_toTopOf="@+id/b_snd" />
 
     <Button
         android:id="@+id/canc_all"
@@ -365,19 +364,92 @@
         android:layout_height="0dp"
         android:text="C"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/button4"
-        app:layout_constraintDimensionRatio="16:7"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_parentesis"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toStartOf="@+id/b_1"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toTopOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/b_parentesis"
+        app:layout_constraintTop_toTopOf="@+id/b_parentesis" />
+
+    <Button
+        android:id="@+id/b_1"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/canc_all"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/canc_all"
+        app:layout_constraintTop_toTopOf="@+id/canc_all" />
+
+    <Button
+        android:id="@+id/b_2"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="2"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_1"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_1"
+        app:layout_constraintTop_toTopOf="@+id/b_1" />
+
+    <Button
+        android:id="@+id/b_div"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="/"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_3"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_3"
+        app:layout_constraintTop_toTopOf="@+id/b_3" />
+
+    <Button
+        android:id="@+id/b_3"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="3"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/b_2"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toStartOf="@+id/b_div"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/b_2"
+        app:layout_constraintTop_toTopOf="@+id/b_2" />
+
+    <Button
+        android:id="@+id/b_canc"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/canc_string"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/output2"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/output2" />
 
     <TextView
         android:id="@+id/output1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
         android:text="0"
         android:textAlignment="textEnd"
         android:textSize="45sp"
@@ -391,9 +463,10 @@
         android:id="@+id/output_sign"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/b_snd"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/output1" />
@@ -402,27 +475,14 @@
         android:id="@+id/output2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="textEnd"
         android:textColor="@android:color/darker_gray"
-        android:textSize="40sp"
+        android:textSize="45sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/b_snd"
         app:layout_constraintEnd_toStartOf="@+id/b_canc"
         app:layout_constraintStart_toEndOf="@+id/output_sign"
         app:layout_constraintTop_toBottomOf="@+id/output1" />
-
-    <Button
-        android:id="@+id/b_canc"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/canc_string"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/output2"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/output2" />
-
 
 </android.support.constraint.ConstraintLayout>

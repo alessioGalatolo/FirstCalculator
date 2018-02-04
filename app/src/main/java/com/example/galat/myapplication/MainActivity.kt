@@ -1,8 +1,12 @@
 package com.example.galat.myapplication
 
+import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import java.math.BigDecimal
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         initializeOpButtons()
         initializeAdvButtons()
     }
-
+    fun Double.roundTo2DecimalPlaces() =
+            BigDecimal(this).setScale(2, BigDecimal.ROUND_HALF_UP).toDouble()
     fun initializeNumberButtons(){
         fun addNumber(number: Long) {
             val shortOut = output1.text.toString().toLong()
@@ -59,16 +64,21 @@ class MainActivity : AppCompatActivity() {
 
     fun initializeOpButtons(){
         fun addSymbol(symbol: String) {
-            when(output_sign.text){
-                "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toInt()).toString()
-                "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).toString()
-                "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).toString()
-                "/" -> output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).toString()
+            when (output_sign.text) {
+                "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                "/" -> output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundTo2DecimalPlaces().toString()
                 "=" -> null
                 else -> output2.text = output1.text
             }
             output1.setText("0")
             output_sign.text = symbol
+            if (symbol == "√") {
+                output2.text = sqrt(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                output_sign.text = "="
+            }
         }
         b_plus.setOnClickListener {
             addSymbol("+")
@@ -85,16 +95,22 @@ class MainActivity : AppCompatActivity() {
         b_equal.setOnClickListener {
             addSymbol("=")
         }
+        b_power.setOnClickListener {
+            addSymbol("^")
+        }
+        b_sqrt.setOnClickListener {
+            addSymbol("√")
+        }
     }
 
     fun initializeAdvButtons(){
-        b_power.setOnClickListener {
+        b_canc.setOnClickListener {
             if(output1.text.toString() != "0")
                 output1.setText(output1.text.toString().subSequence(0, output1.text.toString().length - 1))
             else
-                b_sin.performClick()
+                canc_all.performClick()
         }
-        b_sin.setOnClickListener{
+        canc_all.setOnClickListener{
             output1.setText("0")
             output2.text = ""
             output_sign.text = ""
