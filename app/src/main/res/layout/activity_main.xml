@@ -32,7 +32,7 @@
         android:id="@+id/output1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:enabled="true"
         android:longClickable="true"
@@ -41,7 +41,7 @@
         android:textAlignment="textEnd"
         android:textAllCaps="false"
         android:textIsSelectable="true"
-        android:textSize="55sp"
+        android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/output2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -400,6 +400,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
+        android:singleLine="true"
         android:textAlignment="textEnd"
         android:textColor="@android:color/darker_gray"
         android:textSize="45sp"
@@ -422,6 +423,24 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/output1" />
+
+    <TextView
+        android:id="@+id/outputDot"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:enabled="true"
+        android:singleLine="true"
+        android:text="."
+        android:textAlignment="textEnd"
+        android:textAllCaps="false"
+        android:textIsSelectable="true"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/output1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -447,9 +447,8 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/button_round"
         android:text="@string/canc_string"
         android:textColor="@android:color/white"
@@ -463,7 +462,8 @@
         android:id="@+id/output1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
+        android:singleLine="true"
         android:text="0"
         android:textAlignment="textEnd"
         android:textSize="45sp"
@@ -490,6 +490,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="16dp"
+        android:singleLine="true"
         android:textAlignment="textEnd"
         android:textColor="@android:color/darker_gray"
         android:textSize="45sp"
@@ -498,5 +499,18 @@
         app:layout_constraintEnd_toStartOf="@+id/b_canc"
         app:layout_constraintStart_toEndOf="@+id/output_sign"
         app:layout_constraintTop_toBottomOf="@+id/output1" />
+
+    <TextView
+        android:id="@+id/outputDot"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="."
+        android:textAlignment="textEnd"
+        android:textSize="45sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/output2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
