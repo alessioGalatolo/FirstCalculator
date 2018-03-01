@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                         }else{
                             Toast.makeText(this,"Cannot divide by zero", Toast.LENGTH_SHORT).show()
                         }
+                        "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundTo2DecimalPlaces().toString()
                         "=" -> variabileDaNonDichiarare = 2
                         else -> output2.text = output1.text
                     }
@@ -148,6 +149,26 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            fun landPowerButton(view: View){
+                when (output_sign.text) {
+                    "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                    "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                    "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                    "/" -> if(output1.text.toString().toDouble() != 0.0) {
+                        output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                    }else{
+                        Toast.makeText(this,"Cannot divide by zero", Toast.LENGTH_SHORT).show()
+                    }
+                    "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundTo2DecimalPlaces().toString()
+                    "=" -> variabileDaNonDichiarare = 2
+                    else -> output2.text = output1.text
+                }
+                output_sign.text = "^"
+                output1.text = "0"
+                if(output2.text.toString().toDouble() % 1 == 0.0)
+                    output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
+            }
+
             fun initializeAdvButtons(){
                 b_canc.setOnClickListener {
                     if(output1.text.toString() != "0")
@@ -192,6 +213,7 @@ class MainActivity : AppCompatActivity() {
             fun landSinButton(view: View) = landButtons("sin")
             fun landCosButton(view: View) = landButtons("cos")
             fun landLogButton(view: View) = landButtons("log")
+
 }
 
 
