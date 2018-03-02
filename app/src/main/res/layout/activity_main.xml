@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/output_sign"
-        app:srcCompat="@color/colorPrimary" />
+        app:srcCompat="@color/colorPrimary"
+        android:contentDescription="@string/backgroundString" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -38,6 +39,7 @@
         android:longClickable="true"
         android:singleLine="true"
         android:text="0"
+        android:freezesText="true"
         android:textAlignment="textEnd"
         android:textAllCaps="false"
         android:textIsSelectable="true"
@@ -403,6 +405,7 @@
         android:singleLine="true"
         android:textAlignment="textEnd"
         android:textColor="@android:color/darker_gray"
+        android:freezesText="true"
         android:textSize="45sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/canc_all"
@@ -415,8 +418,10 @@
         android:id="@+id/output_sign"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:freezesText="true"
         android:singleLine="false"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@android:color/darker_gray"
         android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@+id/canc_all"
@@ -432,6 +437,7 @@
         android:enabled="true"
         android:singleLine="true"
         android:text="."
+        android:freezesText="true"
         android:textAlignment="textEnd"
         android:textAllCaps="false"
         android:textIsSelectable="true"

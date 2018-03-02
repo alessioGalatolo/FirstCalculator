@@ -11,6 +11,7 @@ import kotlin.math.*
 
 class MainActivity : AppCompatActivity() {
     var variabileDaNonDichiarare = 2
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -138,10 +139,13 @@ class MainActivity : AppCompatActivity() {
             }else
                 output2.text = sqrt(output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
             output_sign.text = "="
-            output1.text = ""
+            output1.text = "0"
         }
         b_dot.setOnClickListener {
-            outputDot.visibility = View.VISIBLE
+            if(outputDot.visibility == View.VISIBLE)
+                outputDot.visibility = View.INVISIBLE
+            else
+                outputDot.visibility = View.VISIBLE
         }
     }
 
@@ -167,8 +171,10 @@ class MainActivity : AppCompatActivity() {
 
     fun initializeAdvButtons(){
         b_canc.setOnClickListener {
-            if(output1.text.toString() != "0")
+            if(output1.text.toString() != "0" && output1.text.toString().length > 1) {
+                Toast.makeText(this, "${output1.text.toString().length}", Toast.LENGTH_SHORT).show()
                 output1.text = output1.text.toString().subSequence(0, output1.text.toString().length - 1)
+            }
             else
                 canc_all.performClick()
         }
@@ -192,12 +198,12 @@ class MainActivity : AppCompatActivity() {
             output2.text = 0.toString()
         }
         when(symbol){
-            "log" -> if (output2.text != "0")output2.text = log10(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+            "log" -> if (output2.text.toString().toDouble() > 0)output2.text = log10(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
             else Toast.makeText(this, "Math error", Toast.LENGTH_SHORT).show()
             "tan" -> output2.text = tan(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
             "sin" -> output2.text = sin(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
             "cos" -> output2.text = cos(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-            "ln"  -> if (output2.text != "0")output2.text = log(output2.text.toString().toDouble(), E).roundTo2DecimalPlaces().toString()
+            "ln"  -> if (output2.text.toString().toDouble() > 0)output2.text = log(output2.text.toString().toDouble(), E).roundTo2DecimalPlaces().toString()
             else Toast.makeText(this, "Math error", Toast.LENGTH_SHORT).show()
         }
         if(output2.text.toString().toDouble() % 1 == 0.0)
