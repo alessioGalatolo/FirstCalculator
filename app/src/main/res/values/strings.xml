@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Calculator</string>
+    <string name="app_name">Material Calculator</string>
     <string name="canc_string"><![CDATA[<--]]></string>
     <string name="backgroundString">background</string>
 </resources>
