@@ -11,6 +11,7 @@ import kotlin.math.*
 
 class MainActivity : AppCompatActivity() {
     var variabileDaNonDichiarare = 2
+    var memoryVar = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,19 +94,19 @@ class MainActivity : AppCompatActivity() {
                 else -> output2.text = output1.text
             }
             output_sign.text = symbol
-            if (symbol == "√") {
-                if(output1.text.toString().toDouble() * 2 == 0.0) {
-                    output2.text = sqrt(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-                }else
-                    output2.text = sqrt(output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-                output_sign.text = "="
-            }else if( symbol == "^2" ){
-                if(output1.text.toString().toDouble() * 2 == 0.0)
-                    output2.text = output2.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
-                else
-                    output2.text = output1.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
-                output_sign.text = "="
-            }
+//            if (symbol == "√") {
+//                if(output1.text.toString().toDouble() == 0.0) {
+//                    output2.text = sqrt(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+//                }else
+//                    output2.text = sqrt(output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+//                output_sign.text = "="
+//            }else if( symbol == "^2" ){
+//                if(output1.text.toString().toDouble() * 2 == 0.0)
+//                    output2.text = output2.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
+//                else
+//                    output2.text = output1.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
+//                output_sign.text = "="
+//            }
             output1.text = "0"
             if(output2.text.toString().toDouble() % 1 == 0.0)
                 output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
@@ -126,20 +127,24 @@ class MainActivity : AppCompatActivity() {
             addSymbol("=")
         }
         b_sqpow.setOnClickListener {
-            if(output1.text.toString().toDouble() * 2 == 0.0)
+            if(output1.text.toString().toDouble() * 2 == 0.0 && output2.text != "")
                 output2.text = output2.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
             else
                 output2.text = output1.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
             output_sign.text = "="
             output1.text = "0"
+            if(output2.text.toString().toDouble() % 1 == 0.0)
+                output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
         }
         b_sqrt.setOnClickListener {
-            if(output1.text.toString().toDouble() * 2 == 0.0) {
+            if(output1.text.toString().toDouble() * 2 == 0.0 && output2.text != "") {
                 output2.text = sqrt(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
             }else
                 output2.text = sqrt(output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
             output_sign.text = "="
             output1.text = "0"
+            if(output2.text.toString().toDouble() % 1 == 0.0)
+                output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
         }
         b_dot.setOnClickListener {
             if(outputDot.visibility == View.VISIBLE)
@@ -216,22 +221,48 @@ class MainActivity : AppCompatActivity() {
     fun landCosButton(view: View) = landButtons("cos")
     fun landLogButton(view: View) = landButtons("log")
     fun landPerCent(view: View){
-        val bignumber = output2.text.toString().toDouble()
-        if(bignumber == 0.0 || output2.text == "")
+        if(output2.text == "")
             Toast.makeText(this, "Error in using % function", Toast.LENGTH_SHORT).show()
         else
-            when (output_sign.text) {
-                "+" -> output2.text = (bignumber + bignumber * output1.text.toString().toDouble() / 100.0).roundTo2DecimalPlaces().toString()
-                "-" -> output2.text = (bignumber - bignumber * output1.text.toString().toDouble() / 100.0).roundTo2DecimalPlaces().toString()
-                "*" -> output2.text = (bignumber * bignumber * output1.text.toString().toDouble() / 100.0).roundTo2DecimalPlaces().toString()
-                "/" -> if(output1.text.toString().toDouble() != 0.0) {
-                    output2.text = (bignumber / bignumber * output1.text.toString().toDouble() / 100.0).roundTo2DecimalPlaces().toString()
-                }else{
-                    Toast.makeText(this,"Cannot divide by zero", Toast.LENGTH_SHORT).show()
-                }
-                "^" -> output2.text = (bignumber.pow(bignumber * output1.text.toString().toDouble() / 100.0)).roundTo2DecimalPlaces().toString()
-                else -> Toast.makeText(this, "Error in using % function", Toast.LENGTH_SHORT).show()
-            }
+            output1.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble() / 100.0).toString()
+    }
+
+    fun mPlusButton(view: View){
+        if(memoryVar != 0.0 && output1.text.toString().toDouble() != 0.0){
+            output2.text = (memoryVar + output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+            output1.text = "0"
+            output_sign.text = "="
+        }else if(memoryVar != 0.0 && output2.text.toString().toDouble() != 0.0){
+            output2.text = (memoryVar + output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+            output1.text = "0"
+            output_sign.text = "="
+        }else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun rmButton(view: View){
+        if( memoryVar != 0.0) {
+            output1.text = memoryVar.toString()
+            if(output_sign.text == "=")
+                output_sign.text = ""
+        }
+        else
+            Toast.makeText(this, "Memory is empty", Toast.LENGTH_SHORT).show()
+
+    }
+
+    fun minButton(view: View){
+        if(output1.text.toString().toDouble() != 0.0) {
+            memoryVar = output1.text.toString().toDouble()
+            output1.text = "0"
+            Toast.makeText(this, "Value acquired", Toast.LENGTH_SHORT).show()
+        }else if( output2.text != ""){
+            memoryVar = output2.text.toString().toDouble()
+            Toast.makeText(this, "Value acquired", Toast.LENGTH_SHORT).show()
+        }else
+            Toast.makeText(this, "Cannot acquire this value", Toast.LENGTH_SHORT).show()
+
     }
 
 }
