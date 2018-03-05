@@ -147,10 +147,11 @@ class MainActivity : AppCompatActivity() {
                 output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
         }
         b_dot.setOnClickListener {
-            if(outputDot.visibility == View.VISIBLE)
-                outputDot.visibility = View.INVISIBLE
-            else
-                outputDot.visibility = View.VISIBLE
+            if(output1.text.toString().toBigDecimal() % 1.toBigDecimal() == 0.toBigDecimal())
+                if(outputDot.visibility == View.VISIBLE)
+                    outputDot.visibility = View.INVISIBLE
+                else
+                    outputDot.visibility = View.VISIBLE
         }
     }
 
@@ -228,16 +229,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun mPlusButton(view: View){
-        if(memoryVar != 0.0 && output1.text.toString().toDouble() != 0.0){
-            output2.text = (memoryVar + output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+        if( output1.text.toString().toDouble() != 0.0){
+            memoryVar = (memoryVar + output1.text.toString().toDouble()).roundTo2DecimalPlaces()
             output1.text = "0"
             output_sign.text = "="
-        }else if(memoryVar != 0.0 && output2.text.toString().toDouble() != 0.0){
-            output2.text = (memoryVar + output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+        }else if(output2.text.toString().toDouble() != 0.0){
+            memoryVar = (memoryVar + output2.text.toString().toDouble()).roundTo2DecimalPlaces()
             output1.text = "0"
             output_sign.text = "="
         }else{
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Cannot add 0", Toast.LENGTH_SHORT).show()
         }
     }
 
