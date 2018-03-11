@@ -292,7 +292,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="√"
+        android:text="@string/sqrtString"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="21sp"

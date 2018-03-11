@@ -2,4 +2,5 @@
     <string name="app_name">Material Calculator</string>
     <string name="canc_string"><![CDATA[<--]]></string>
     <string name="backgroundString">background</string>
+    <string name="sqrtString">√</string>
 </resources>
