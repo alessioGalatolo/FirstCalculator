@@ -10,8 +10,9 @@ import kotlin.math.*
 
 
 class MainActivity : AppCompatActivity() {
-    var variabileDaNonDichiarare = 2
+    private var approximationNumber = 2
     var memoryVar = 0.0
+    var numberWithColon : String = "0"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,19 +22,30 @@ class MainActivity : AppCompatActivity() {
         initializeAdvButtons()
     }
 
-    fun Double.roundTo2DecimalPlaces() = BigDecimal(this).setScale(variabileDaNonDichiarare, BigDecimal.ROUND_HALF_UP).toDouble()
+    private fun Double.roundToDecimalPlaces(approx: Int) = BigDecimal(this).setScale(approx, BigDecimal.ROUND_HALF_UP).toDouble()
 
-    fun initializeNumberButtons(){
+    private fun initializeNumberButtons(){
         fun addNumber(number: Int) {
             if(output_sign.text == "=")
                 output_sign.text = ""
             if(outputDot.visibility == View.VISIBLE){
-                output1.text = (output1.text.toString().toDouble() + number.toDouble() * 10.0.pow(2 - (output1.text.toString().toDouble() % 1).toString().length)).toString()
+                numberWithColon = output1.text.toString() + "." + number.toString()
+                if(number != 0)
+                    output1.text = (output1.text.toString().toDouble() + number.toDouble() * 10.0.pow(2 - (output1.text.toString().toDouble() % 1).toString().length)).toString()
+                else {
+                    output1.text = output1.text.toString().toDouble().roundToDecimalPlaces(1).toString()
+                }
                 outputDot.visibility = View.INVISIBLE
-                variabileDaNonDichiarare = 1
-            }else if (output1.text.toString().toDouble() % 1 > 0.0){
-                variabileDaNonDichiarare++
-                output1.text = (output1.text.toString().toDouble() + number.toDouble() * 10.0.pow(1 - (output1.text.toString().toBigDecimal() % 1.toBigDecimal()).toString().length)).roundTo2DecimalPlaces().toString()
+                approximationNumber = 1
+            }else if (numberWithColon != "0"){
+                approximationNumber++
+                numberWithColon += number.toString()
+                if (number != 0)
+//                    output1.text = (output1.text.toString().toDouble() + number.toDouble() * 10.0.pow(1 - (output1.text.toString().toBigDecimal() % 1.toBigDecimal()).toString().length)).roundToDecimalPlaces(approximationNumber).toString()
+                    output1.text = numberWithColon
+                else {
+                    output1.text = numberWithColon
+                }
                 outputDot.visibility = View.INVISIBLE
             }else{
                 if (output1.text.toString().toDouble() == 0.0) {
@@ -42,9 +54,7 @@ class MainActivity : AppCompatActivity() {
                     output1.text = (output1.text.toString().toDouble() * 10.0 + number).toString()
                 }
             }
-            if(output1.text.toString().toDouble() % 1 == 0.0)
-                output1.text = floor(output1.text.toString().toDouble()).roundToInt().toString()
-            }
+        }
 
         b_0.setOnClickListener {
             addNumber(0)
@@ -78,36 +88,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun initializeOpButtons(){
+    private fun initializeOpButtons(){
         fun addSymbol(symbol: String) {
             when (output_sign.text) {
-                "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-                "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-                "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
+                "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
+                "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
                 "/" -> if(output1.text.toString().toDouble() != 0.0) {
-                    output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                    output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
                 }else{
                     Toast.makeText(this,"Cannot divide by zero", Toast.LENGTH_SHORT).show()
                 }
-                "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundTo2DecimalPlaces().toString()
-                "=" -> variabileDaNonDichiarare = 2
+                "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundToDecimalPlaces(approximationNumber).toString()
+                "=" -> approximationNumber = 2
                 else -> output2.text = output1.text
             }
             output_sign.text = symbol
-//            if (symbol == "√") {
-//                if(output1.text.toString().toDouble() == 0.0) {
-//                    output2.text = sqrt(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-//                }else
-//                    output2.text = sqrt(output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-//                output_sign.text = "="
-//            }else if( symbol == "^2" ){
-//                if(output1.text.toString().toDouble() * 2 == 0.0)
-//                    output2.text = output2.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
-//                else
-//                    output2.text = output1.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
-//                output_sign.text = "="
-//            }
             output1.text = "0"
+            if(numberWithColon != "0"){
+                output2.text = numberWithColon
+                numberWithColon = "0"
+            }
             if(output2.text.toString().toDouble() % 1 == 0.0)
                 output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
         }
@@ -128,9 +129,9 @@ class MainActivity : AppCompatActivity() {
         }
         b_sqpow.setOnClickListener {
             if(output1.text.toString().toDouble() * 2 == 0.0 && output2.text != "")
-                output2.text = output2.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
+                output2.text = output2.text.toString().toDouble().pow(2).roundToDecimalPlaces(approximationNumber).toString()
             else
-                output2.text = output1.text.toString().toDouble().pow(2).roundTo2DecimalPlaces().toString()
+                output2.text = output1.text.toString().toDouble().pow(2).roundToDecimalPlaces(approximationNumber).toString()
             output_sign.text = "="
             output1.text = "0"
             if(output2.text.toString().toDouble() % 1 == 0.0)
@@ -138,9 +139,9 @@ class MainActivity : AppCompatActivity() {
         }
         b_sqrt.setOnClickListener {
             if(output1.text.toString().toDouble() * 2 == 0.0 && output2.text != "") {
-                output2.text = sqrt(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                output2.text = sqrt(output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
             }else
-                output2.text = sqrt(output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                output2.text = sqrt(output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
             output_sign.text = "="
             output1.text = "0"
             if(output2.text.toString().toDouble() % 1 == 0.0)
@@ -157,39 +158,55 @@ class MainActivity : AppCompatActivity() {
 
     fun landPowerButton(view: View){
         when (output_sign.text) {
-            "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-            "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-            "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+            "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
+            "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
+            "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
             "/" -> if(output1.text.toString().toDouble() != 0.0) {
-                output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+                output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
             }else{
                 Toast.makeText(this,"Cannot divide by zero", Toast.LENGTH_SHORT).show()
             }
-            "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundTo2DecimalPlaces().toString()
-            "=" -> variabileDaNonDichiarare = 2
+            "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundToDecimalPlaces(approximationNumber).toString()
+            "=" -> approximationNumber = 2
             else -> output2.text = output1.text
         }
         output_sign.text = "^"
         output1.text = "0"
+        if(numberWithColon != "0"){
+            output2.text = numberWithColon
+            numberWithColon = "0"
+        }
         if(output2.text.toString().toDouble() % 1 == 0.0)
             output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
     }
 
-    fun initializeAdvButtons(){
+    private fun initializeAdvButtons(){
         b_canc.setOnClickListener {
             if(output1.text.toString() != "0" && output1.text.toString().length > 1) {
-                Toast.makeText(this, "${output1.text.toString().length}", Toast.LENGTH_SHORT).show()
                 output1.text = output1.text.toString().subSequence(0, output1.text.toString().length - 1)
+                if (output1.text.toString()[output1.text.toString().length - 1] == '.')
+                    output1.text = output1.text.toString().subSequence(0, output1.text.toString().length - 1)
+                if (numberWithColon != "0"){
+                    numberWithColon = numberWithColon.subSequence(0, numberWithColon.length - 1).toString()
+                    if (numberWithColon[numberWithColon.length - 1] == '.')
+                        numberWithColon = numberWithColon.subSequence(0, numberWithColon.length - 1).toString()
+                }
             }
             else
-                canc_all.performClick()
+                cancAll()
         }
-        canc_all.setOnClickListener{
-            output1.text = "0"
-            output2.text = ""
-            output_sign.text = ""
-            variabileDaNonDichiarare = 2
+        b_canc.setOnLongClickListener {
+            cancAll()
+            return@setOnLongClickListener true
         }
+
+    }
+
+    private fun cancAll(){
+        output1.text = "0"
+        output2.text = ""
+        output_sign.text = ""
+        approximationNumber = 2
     }
 
     fun landButtons(symbol: String){
@@ -204,12 +221,12 @@ class MainActivity : AppCompatActivity() {
             output2.text = 0.toString()
         }
         when(symbol){
-            "log" -> if (output2.text.toString().toDouble() > 0)output2.text = log10(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
+            "log" -> if (output2.text.toString().toDouble() > 0)output2.text = log10(output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
             else Toast.makeText(this, "Math error", Toast.LENGTH_SHORT).show()
-            "tan" -> output2.text = tan(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-            "sin" -> output2.text = sin(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-            "cos" -> output2.text = cos(output2.text.toString().toDouble()).roundTo2DecimalPlaces().toString()
-            "ln"  -> if (output2.text.toString().toDouble() > 0)output2.text = log(output2.text.toString().toDouble(), E).roundTo2DecimalPlaces().toString()
+            "tan" -> output2.text = tan(output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
+            "sin" -> output2.text = sin(output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
+            "cos" -> output2.text = cos(output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
+            "ln"  -> if (output2.text.toString().toDouble() > 0)output2.text = log(output2.text.toString().toDouble(), E).roundToDecimalPlaces(approximationNumber).toString()
             else Toast.makeText(this, "Math error", Toast.LENGTH_SHORT).show()
         }
         if(output2.text.toString().toDouble() % 1 == 0.0)
@@ -230,11 +247,11 @@ class MainActivity : AppCompatActivity() {
 
     fun mPlusButton(view: View){
         if( output1.text.toString().toDouble() != 0.0){
-            memoryVar = (memoryVar + output1.text.toString().toDouble()).roundTo2DecimalPlaces()
+            memoryVar = (memoryVar + output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber)
             output1.text = "0"
             output_sign.text = "="
         }else if(output2.text.toString().toDouble() != 0.0){
-            memoryVar = (memoryVar + output2.text.toString().toDouble()).roundTo2DecimalPlaces()
+            memoryVar = (memoryVar + output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber)
             output1.text = "0"
             output_sign.text = "="
         }else{
