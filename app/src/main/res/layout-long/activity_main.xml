@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -394,19 +393,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <Button
         android:id="@+id/b_min"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginStart="49dp"
         android:onClick="minButton"
+        android:singleLine="true"
         android:text="MIn"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/canc_all"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@+id/b_mplus"
@@ -419,10 +421,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="mPlusButton"
+        android:singleLine="true"
         android:text="M+"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/b_min"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@+id/b_rm"
@@ -436,10 +439,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:onClick="rmButton"
+        android:singleLine="true"
         android:text="RM"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/b_mplus"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,7 +1,9 @@
 package com.example.galat.myapplication
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.widget.TextViewCompat
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        TextViewCompat.setAutoSizeTextTypeWithDefaults(output1, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM)
+        TextViewCompat.setAutoSizeTextTypeWithDefaults(output2, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM)
+        TextViewCompat.setAutoSizeTextTypeWithDefaults(output_sign, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM)
         initializeNumberButtons()
         initializeOpButtons()
         initializeAdvButtons()
@@ -26,9 +31,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initializeNumberButtons(){
         fun addNumber(number: Int) {
-            if(output_sign.text == "=")
+            if(output_sign.text == "=") //checks for previous operations
                 output_sign.text = ""
-            if(outputDot.visibility == View.VISIBLE){
+            if(outputDot.visibility == View.VISIBLE){ //checks for dot activation
                 numberWithColon = output1.text.toString() + "." + number.toString()
                 if(number != 0)
                     output1.text = (output1.text.toString().toDouble() + number.toDouble() * 10.0.pow(2 - (output1.text.toString().toDouble() % 1).toString().length)).toString()
@@ -37,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 outputDot.visibility = View.INVISIBLE
                 approximationNumber = 1
-            }else if (numberWithColon != "0"){
+            }else if (numberWithColon != "0"){ //checks for previous dot activation
                 approximationNumber++
                 numberWithColon += number.toString()
                 if (number != 0)
@@ -48,11 +53,14 @@ class MainActivity : AppCompatActivity() {
                 }
                 outputDot.visibility = View.INVISIBLE
             }else{
-                if (output1.text.toString().toDouble() == 0.0) {
+                if (output1.text.toString().toDouble() == 0.0) { //adds number to textview
                     output1.text = number.toString()
                 } else {
                     output1.text = (output1.text.toString().toDouble() * 10.0 + number).toString()
                 }
+
+                if(output1.text.toString().toDouble() % 1 == 0.0)
+                    output1.text = floor(output1.text.toString().toDouble()).roundToInt().toString()
             }
         }
 
@@ -106,7 +114,6 @@ class MainActivity : AppCompatActivity() {
             output_sign.text = symbol
             output1.text = "0"
             if(numberWithColon != "0"){
-                output2.text = numberWithColon
                 numberWithColon = "0"
             }
             if(output2.text.toString().toDouble() % 1 == 0.0)
@@ -248,12 +255,15 @@ class MainActivity : AppCompatActivity() {
     fun mPlusButton(view: View){
         if( output1.text.toString().toDouble() != 0.0){
             memoryVar = (memoryVar + output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber)
-            output1.text = "0"
             output_sign.text = "="
+            Toast.makeText(this, "Memory is now: $memoryVar", Toast.LENGTH_SHORT).show()
+
+
         }else if(output2.text.toString().toDouble() != 0.0){
             memoryVar = (memoryVar + output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber)
-            output1.text = "0"
             output_sign.text = "="
+            Toast.makeText(this, "Memory is now: $memoryVar", Toast.LENGTH_SHORT).show()
+
         }else{
             Toast.makeText(this, "Cannot add 0", Toast.LENGTH_SHORT).show()
         }
@@ -273,11 +283,12 @@ class MainActivity : AppCompatActivity() {
     fun minButton(view: View){
         if(output1.text.toString().toDouble() != 0.0) {
             memoryVar = output1.text.toString().toDouble()
-            output1.text = "0"
             Toast.makeText(this, "Value acquired", Toast.LENGTH_SHORT).show()
+            b_min.setTextColor(Color.parseColor("#000000"))
         }else if( output2.text != ""){
             memoryVar = output2.text.toString().toDouble()
             Toast.makeText(this, "Value acquired", Toast.LENGTH_SHORT).show()
+            b_min.setTextColor(Color.parseColor("#000000"))
         }else
             Toast.makeText(this, "Cannot acquire this value", Toast.LENGTH_SHORT).show()
 
