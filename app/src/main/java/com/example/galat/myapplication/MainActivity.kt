@@ -97,28 +97,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeOpButtons(){
-        fun addSymbol(symbol: String) {
-            when (output_sign.text) {
-                "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
-                "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
-                "*" -> output2.text = (output2.text.toString().toDouble() * output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
-                "/" -> if(output1.text.toString().toDouble() != 0.0) {
-                    output2.text = (output2.text.toString().toDouble() / output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
-                }else{
-                    Toast.makeText(this,"Cannot divide by zero", Toast.LENGTH_SHORT).show()
-                }
-                "^" -> output2.text = (output2.text.toString().toDouble().pow(output1.text.toString().toDouble())).roundToDecimalPlaces(approximationNumber).toString()
-                "=" -> approximationNumber = 2
-                else -> output2.text = output1.text
-            }
-            output_sign.text = symbol
-            output1.text = "0"
-            if(numberWithColon != "0"){
-                numberWithColon = "0"
-            }
-            if(output2.text.toString().toDouble() % 1 == 0.0)
-                output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
-        }
         b_plus.setOnClickListener {
             addSymbol("+")
         }
@@ -163,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun landPowerButton(view: View){
+    fun addSymbol(symbol: String) {
         when (output_sign.text) {
             "+" -> output2.text = (output2.text.toString().toDouble() + output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
             "-" -> output2.text = (output2.text.toString().toDouble() - output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber).toString()
@@ -177,14 +155,17 @@ class MainActivity : AppCompatActivity() {
             "=" -> approximationNumber = 2
             else -> output2.text = output1.text
         }
-        output_sign.text = "^"
+        output_sign.text = symbol
         output1.text = "0"
         if(numberWithColon != "0"){
-            output2.text = numberWithColon
             numberWithColon = "0"
         }
         if(output2.text.toString().toDouble() % 1 == 0.0)
             output2.text = floor(output2.text.toString().toDouble()).roundToInt().toString()
+    }
+
+    fun landPowerButton(view: View){
+        addSymbol("^")
     }
 
     private fun initializeAdvButtons(){
@@ -253,13 +234,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun mPlusButton(view: View){
+        addSymbol("=")
         if( output1.text.toString().toDouble() != 0.0){
             memoryVar = (memoryVar + output1.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber)
             output_sign.text = "="
             Toast.makeText(this, "Memory is now: $memoryVar", Toast.LENGTH_SHORT).show()
 
 
-        }else if(output2.text.toString().toDouble() != 0.0){
+        }else if(output2.text.toString().toDouble() != 0.0 && output2.text.toString() != ""){
             memoryVar = (memoryVar + output2.text.toString().toDouble()).roundToDecimalPlaces(approximationNumber)
             output_sign.text = "="
             Toast.makeText(this, "Memory is now: $memoryVar", Toast.LENGTH_SHORT).show()
@@ -274,6 +256,8 @@ class MainActivity : AppCompatActivity() {
             output1.text = memoryVar.toString()
             if(output_sign.text == "=")
                 output_sign.text = ""
+            if(output1.text.toString().toDouble() % 1 == 0.0)
+                output1.text = floor(output1.text.toString().toDouble()).roundToInt().toString()
         }
         else
             Toast.makeText(this, "Memory is empty", Toast.LENGTH_SHORT).show()
@@ -281,6 +265,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun minButton(view: View){
+
+        addSymbol("=")
         if(output1.text.toString().toDouble() != 0.0) {
             memoryVar = output1.text.toString().toDouble()
             Toast.makeText(this, "Value acquired", Toast.LENGTH_SHORT).show()
